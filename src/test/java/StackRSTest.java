@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import stack.StackRS;
 
@@ -7,8 +9,19 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class StackRSTest {
+    StackRS stackRS;
 
-    StackRS stackRS = new StackRS();
+    @BeforeEach
+    public void setUp(){
+        stackRS = new StackRS();
+    }
+
+    @AfterEach
+    public void tearDown() {
+        if (stackRS != null) {
+            stackRS = null;
+        }
+    }
 
     @Test
     public void ClassExists(){
